@@ -24,7 +24,7 @@ public class Pais {
 	private String nombre;
 
 	// Relacion Uno a Muchos
-	@OneToMany(mappedBy = "pais") // Asociacion
+	@OneToMany(mappedBy = "tbPais") // Asociacion
 	@JsonIgnore // para generar JSON del arreglo
 	private List<Alumno> listaAlumnos;
 

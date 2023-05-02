@@ -24,7 +24,7 @@ public class Distrito {
 	private String nombre;
 	
 	 //Relacion Uno a Muchos
-	 @OneToMany(mappedBy = "distrito")//Asociacion
+	 @OneToMany(mappedBy = "tbDistrito")//Asociacion
 	 @JsonIgnore //para generar JSON del arreglo 
  	 private List<Alumno> listaAlumnos;
 

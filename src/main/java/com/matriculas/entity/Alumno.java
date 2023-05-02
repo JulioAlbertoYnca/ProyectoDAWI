@@ -1,6 +1,7 @@
 package com.matriculas.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -32,11 +34,14 @@ public class Alumno {
 	//Relacion muchos a uno
 	@ManyToOne
 	@JoinColumn(name = "cod_Distrito")
-	private Distrito distrito;
+	private Distrito tbDistrito;
 	
 	@ManyToOne
 	@JoinColumn(name = "cod_Pais")
-	private Pais pais;
+	private Pais tbPais;
+	
+	@OneToMany(mappedBy = "tbAlumno")
+	private List<Inscripcion> inscripcion;
 
 	public String getDni() {
 		return dni;
@@ -86,21 +91,25 @@ public class Alumno {
 		this.direccion = direccion;
 	}
 
-	public Distrito getDistrito() {
-		return distrito;
+	public Distrito getTbDistrito() {
+		return tbDistrito;
 	}
 
-	public void setDistrito(Distrito distrito) {
-		this.distrito = distrito;
+	public void setTbDistrito(Distrito tbDistrito) {
+		this.tbDistrito = tbDistrito;
 	}
 
-	public Pais getPais() {
-		return pais;
+	public Pais getTbPais() {
+		return tbPais;
 	}
 
-	public void setPais(Pais pais) {
-		this.pais = pais;
+	public void setTbPais(Pais tbPais) {
+		this.tbPais = tbPais;
 	}
+
+	
+
+	
 	
 	
 	
